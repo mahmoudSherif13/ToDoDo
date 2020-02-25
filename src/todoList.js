@@ -1,21 +1,17 @@
-let todoList = function(title){
+let todoList = (title)=>{
     let _title = title;
-    let _todos = {};
+    let _todosList = {};
 
     let getTitle = ()=>_title;
-    let getTodos = ()=>_todos;
-    let addTodo = (todo)=>{
-        _todos[todo.id] = todo;
-    };
-    let deleteTodo = (todo)=>{
-        delete _todos[todo.id];
-    };
+    let getTodosList = ()=>_todosList;
+    let addTodo = (todo)=> _todosList[todo.id] = todo;
+    let deleteTodo = (todo)=> delete _todos[todo.id];
 
     return{
         getTitle,
-        getTodos,
+        getTodosList,
         addTodo,
         deleteTodo
     };
-}
+};
 export{todoList};
