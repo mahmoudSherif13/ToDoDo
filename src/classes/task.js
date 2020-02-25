@@ -1,4 +1,3 @@
-import { compareAsc, format } from 'date-fns';
 
 let taskId = 0;
 let subTaskId = 0;
@@ -48,7 +47,8 @@ export let task = (title)=>{
     let setDescription = (description)=> _description = description; 
 
     let getDueDate = ()=>_dueDate;
-    let setDueData = (dueDate)=> _dueDate = dueDate;
+    let clearDueDate = ()=> _dueDate = undefined;
+    let setDueDate = (date)=>_dueDate = date;
     
     let getPriority = ()=>_priority;
     let setPriority = (priority)=>{
@@ -75,7 +75,8 @@ export let task = (title)=>{
         getDescription,
         setDescription,
         getDueDate,
-        setDueData,
+        clearDueDate,
+        setDueDate,
         getPriority,
         setPriority,
         getNotes,
