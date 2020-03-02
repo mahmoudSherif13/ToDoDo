@@ -1,9 +1,10 @@
-let taskListId = 0;
+import {genTaskListId} from '../interfaces/storgeInterface'
 
-export let taskList = (title)=>{
+
+export let TaskList = (title)=>{
     let _title = title;
     let _tasksList = {};
-    let _id = taskListId++;
+    let _id = genTaskListId();
 
     let getTitle = ()=>_title;
 
