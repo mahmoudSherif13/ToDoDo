@@ -1,13 +1,11 @@
+import {genSubTaskId , genTaskId} from '../interfaces/storgeInterface'
 
-let taskId = 0;
-let subTaskId = 0;
-
-export let subTask = (title)=>{
+export let SubTask = (title)=>{
     let _title = title;
     let _checked = false;
-    let _id = subTaskId++;
+    let _id = genSubTaskId();
 
-    let getSubTitle = ()=>_title;
+    let getTitle = ()=>_title;
     let setSubTitle = (title)=>_title = title;
 
     let getChecked = ()=>_checked;
@@ -17,7 +15,7 @@ export let subTask = (title)=>{
     let getId = ()=>_id;
 
     return{
-        getSubTitle,
+        getTitle,
         setSubTitle,
         getChecked,
         setActive,
@@ -26,9 +24,9 @@ export let subTask = (title)=>{
     }
 };
 
-export let task = (title)=>{
+export let Task = (title)=>{
 
-    let _id = taskId++;
+    let _id = genTaskId();
     let _title = title;
     let _description;
     let _dueDate;
@@ -36,7 +34,6 @@ export let task = (title)=>{
     let _notes;
     let _subTasksList = {};
     let _checked = false ;
-    let _subTasksId = 0;
 
     let getId = ()=>_id;
 
@@ -61,7 +58,7 @@ export let task = (title)=>{
     let setNotes = (notes)=>_notes = notes;
 
     let getChecklist = ()=>_subTasksList;
-    let addSubTask = (checklistItemTitle)=>_subTasksList[_subTasksId] = subTask(checklistItemTitle , _subTasksId++);
+    let addSubTask = (subTask)=>_subTasksList[subTask.getId()] = subTask;
     let deleteSubTask = (checklistItemId)=> delete _subTasksList[checklistItemId];
 
     let getChecked = ()=>_checked;
