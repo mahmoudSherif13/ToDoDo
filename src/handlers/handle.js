@@ -61,10 +61,14 @@ function setCurList(listId){
 }
 
 export function removeList(listId){
+    if(!listId){
+        prompt("select a list");
+    }
     listsElements[listId].remove();
     clearTasksView();
     delete listsElements[listId];
     delete lists[listId];
+    curListId = null;
 }
 
 // tasks Function
