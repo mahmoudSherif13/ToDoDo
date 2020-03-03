@@ -14,8 +14,10 @@ let curListId;
 let listsView = document.getElementById("TasksLists");
 let tasksView = document.getElementById("list");
 let newListInputView = document.getElementById("newTaskList");
-let newListBtnView = document.getElementById("newTaskListBtn");
 let newTaskInputView = document.getElementById("newTask");
+
+let removeListBtnView = document.getElementById("removeListBtn");
+let newListBtnView = document.getElementById("newTaskListBtn");
 let newTaskBtnView = document.getElementById("newTaskBtn");
 // lists functions 
 function addListView(list){
@@ -49,7 +51,7 @@ function showListsViews(){
 }
 
 function setCurList(listId){
-    if(curListId)
+    if(curListId && listsElements[curListId])
         listsElements[curListId].classList.remove("sel");
     listsElements[listId].classList.add("sel");
     curListId = listId;
@@ -58,6 +60,12 @@ function setCurList(listId){
     showTasksViews(listId);
 }
 
+export function removeList(listId){
+    listsElements[listId].remove();
+    clearTasksView();
+    delete listsElements[listId];
+    delete lists[listId];
+}
 
 // tasks Function
 
@@ -122,4 +130,5 @@ function newTaskBtnHandle(){
 export function init(){
     newListBtnView.addEventListener('click', newListBtnHandle);
     newTaskBtnView.addEventListener('click', newTaskBtnHandle);    
+    removeListBtnView.addEventListener('click', ()=>removeList(curListId));
 }
