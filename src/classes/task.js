@@ -29,7 +29,7 @@ export let Task = (title) => {
     let _title = title;
     let _description;
     let _dueDate;
-    let _priority = 2;
+    let _priority = 1;
     let _notes;
     let _subTasksList = {};
     let _checked = false;
@@ -48,7 +48,7 @@ export let Task = (title) => {
 
     let getPriority = () => _priority;
     let setPriority = (priority) => {
-        if (1 <= priority && priority <= 3) {
+        if (0 <= priority && priority <= 2) {
             _priority = priority;
         }
     };

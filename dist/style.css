@@ -42,9 +42,6 @@ body{
 .task:hover{
     background: rgba(255,255,255,0.3);
 }
-.task:hover .priority{
-    background-color: black;
-}
 .newTask{
     border: 0.8px solid black;
     font-size: large;

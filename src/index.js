@@ -2,8 +2,10 @@ import { List } from './classes/list';
 import { Task } from './classes/task';
 
 let lists = {};
-let tasks = {};
+export let tasks = {};
 let curId = -1;
+
+const priorityColors = ['green', 'gray', 'red'];
 
 const listsHolder = document.getElementById('listsHolder');
 const taskIdView = document.getElementById("taskId");
@@ -21,7 +23,7 @@ function createNewList(title) {
     listsHolder.append(listView);
 }
 
-function createTask(title, listId) {
+function createNewTask(title, listId) {
     const task = Task(title);
     const taskView = getTaskView(task);
     const listTasks = document.getElementById(listId).querySelector('.tasks');
@@ -32,22 +34,28 @@ function createTask(title, listId) {
 
 function deleteTask(TaskId) {
     document.getElementById(TaskId).remove();
+    delete task[TaskId];
 }
 
 function editTask(Task) {
-    // edit view
     const taskView = document.getElementById(curId);
     taskView.querySelector(".taskName").innerHTML = Task.getTitle();
-
+    taskView.querySelector("span")
+        .style.borderColor = priorityColors[Task.getPriority()]
+    taskView.addEventListener("mouseover",()=>{
+        taskView.querySelector("span")
+            .style.backgroundColor = priorityColors[Task.getPriority()];
+    });
     tasks[curId] = Task;
 }
 
 function editTaskForm(){
-    console.log("form sub");
     const title = editTaskText.value;
     const priority = editTaskPriority.value;
     const edTask = Task(title);
-    edTask.setPriority(priority);
+    if(0 <= priority && priority <= 2)
+        edTask.setPriority(priority);
+    
     editTask(edTask);
     editFormView.style.visibility = "hidden";
 }
@@ -70,6 +78,7 @@ function getTaskView(task) {
     /// TODO : set the color based on the Priority
     const PriorityView = document.createElement('span');
     PriorityView.classList.add('priority');
+    PriorityView.style.borderColor = priorityColors[task.getPriority()];
     taskView.append(PriorityView);
 
     // title
@@ -80,6 +89,14 @@ function getTaskView(task) {
 
     taskView.addEventListener('dblclick',()=>{
         deleteTask(task.getId());
+    });
+
+    taskView.addEventListener("mouseover",()=>{
+        PriorityView.style.backgroundColor = priorityColors[task.getPriority()];
+    });
+
+    taskView.addEventListener("mouseout",()=>{
+        PriorityView.style.backgroundColor = "";
     });
 
     taskView.addEventListener('click',()=>{
@@ -94,7 +111,7 @@ function getTaskView(task) {
 // list
 function newTaskBtn(id) {
     let title = prompt('task title');
-    createTask(title, id);
+    createNewTask(title, id);
 }
 function getListView(list) {
     // list
@@ -126,3 +143,5 @@ function getListView(list) {
 }
 
 init();
+createNewList("list");
+createNewTask("task",0);
