@@ -1,0 +1,84 @@
+body{
+    background-color: #ffffff;
+}
+#listsHolder{
+    border: 0.2px solid black;
+    background-color: #ffffff;
+    position: relative;
+    /* opacity: 30%; */
+    width: 100%;
+    float: left;
+    display: flex;
+}
+.list{
+    background-color: #03DAC5;
+    width: 15%;
+    float: left;
+    margin: 15px;
+    display: flex;
+    flex-direction: column;
+}
+.list-name{
+    background-color: #6200EE;
+    font-size: large;
+    color: black;
+    text-align: center;
+    position: relative;
+    padding-top: 0.5em;
+    padding-bottom:0.5em ;
+}
+.pre {
+    float: left;
+    border: 2px solid black;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+}
+.task{
+    padding: .5em;
+    padding-left: 1em;
+}
+.task:hover{
+    background: rgba(255,255,255,0.3);
+}
+.task:hover .pre{
+    background-color: black;
+}
+.newTask{
+    border: 0.8px solid black;
+    font-size: large;
+    text-align: center;
+    padding: .5em;
+    padding-left: 1em;
+    display: block;
+    position: relative;
+}
+.newTask:hover{
+    background: rgba(255,255,255,0.3);
+}
+.newTaskInput{
+    background-color: darkkhaki;
+    padding-top: .5em;
+    padding-bottom: 0.5em;
+    border:0;
+    font-size: large;
+    width: 100%;
+}
+.newList{
+    background-color: darkkhaki;
+    border: 0.8px solid black;
+    font-size: large;
+    text-align: center;
+    padding: .5em;
+    padding-left: 1em;
+    display: block;
+    height: 100px;
+    position: relative;
+}
+.main{
+    float: left;
+    width: 100%;
+    position: relative;
+
+}

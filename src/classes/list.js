@@ -1,24 +1,23 @@
-import {genListId} from '../interfaces/storgeInterface'
+import { genListId } from '../interfaces/storgeInterface';
 
-
-export let List = (title)=>{
+export let List = (title) => {
     let _title = title;
     let _tasks = {};
     let _id = genListId();
 
-    let getTitle = ()=>_title;
+    let getTitle = () => _title;
 
-    let getTasks = ()=>_tasks;
-    let addTask = (task)=> _tasks[task.getId()] = task;
-    let deleteTask = (id)=> delete _tasks[id];
+    let getTasks = () => _tasks;
+    let addTask = (task) => (_tasks[task.getId()] = task);
+    let deleteTask = (id) => delete _tasks[id];
 
-    let getId = ()=>_id;
+    let getId = () => _id;
 
-    return{
+    return {
         getTitle,
         getTasks,
         addTask,
         deleteTask,
-        getId
+        getId,
     };
 };
