@@ -7,44 +7,22 @@
 </head>
 
 <body>
-    <h3>svsdv</h3>
+    <h3>TODO</h3>
+    <h2 id="taskId"></h2>
     <input type="text" id="listTitle" />
     <button id="newList">new List</button>
     <div style="height: 10px;" ></div>
     <div class="main">
         <div id="listsHolder">
-            <div class='list'>
-                <div class="list-name">cool list</div>
-                <div class="tasks">
-                    <div class="task"><span class="pre"></span>task1</div>
-                    <div class="task"><span class="pre"></span>task2</div>
-                    <div class="task"><span class="pre"></span>task3</div>
-                    <div class="task"><span class="pre"></span>task4</div>
-                </div>
-                <div class="newTask">+</div>
-            </div>
-            <div class='list'>
-                <div class="list-name">cool list</div>
-                <div class="tasks">
-                    <div class="task"><span class="pre"></span>task1</div>
-                    <div class="task"><span class="pre"></span>task2</div>
-                    <div class="task"><span class="pre"></span>task3</div>
-                    <div class="task"><span class="pre"></span>task4</div>
-                </div>
-                <div class="newTask">+</div>
-            </div>
-            <div class='list'>
-                <div class="list-name">cool list</div>
-                <div class="tasks">
-                    <div class="task"><span class="pre"></span>task1</div>
-                    <div class="task"><span class="pre"></span>task2</div>
-                    <div class="task"><span class="pre"></span>task3</div>
-                    <div class="task"><span class="pre"></span>task4</div>
-                </div>
-                <div class="newTask">+</div>
-            </div>
+
         </div>
         <!-- <div class="newList">+</div> -->
+        <form name="editTask" action="#" style="visibility: hidden">
+            <label for="editTaskText">Text</label><input type="text" id="editTaskText">
+            <br>
+            <label for="editTaskPriority">priority</label><input type="number" id="editTaskPriority">
+            <input type="submit" id="editBtn">
+        </form>
     </div>
     <script src="main.js"></script>
 </body>
