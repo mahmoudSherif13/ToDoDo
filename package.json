@@ -16,7 +16,7 @@
     "eslint": "^6.8.0",
     "prettier": "2.0.4",
     "webpack": "^4.41.6",
-    "webpack-cli": "^3.3.11"
+    "webpack-cli": "^3.3.12"
   },
   "dependencies": {
     "@material/list": "^5.0.0",
